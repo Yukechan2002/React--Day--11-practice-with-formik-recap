@@ -11,8 +11,12 @@ const BookForm = ({ initialValues, onSubmit }) => {
   const validationSchema = Yup.object({
     title: Yup.string().required("Title is required"),
     author: Yup.string().required("Author is required"),
-    isbn: Yup.string().required("ISBN is required"),
-    publicationDate: Yup.date().required("Publication Date is required"),
+    isbn: Yup.string()
+      .required("ISBN is required")
+      .matches(/^\d{10}$/, "ISBN must be exactly 10 digits"),
+    publicationDate: Yup.date()
+      .max(new Date(), "Enter valid publication date")
+      .required("Birth Date is required"),
   });
 
   const handleSubmit = async (values, { resetForm }) => {

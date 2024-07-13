@@ -18,7 +18,9 @@ const EditAuthor = ({ authors, onUpdate }) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
-    birthDate: Yup.date().required("Birth Date is required"),
+    birthDate: Yup.date()
+      .max(new Date(), "Enter valid Date of Birth")
+      .required("Birth Date is required"),
     biography: Yup.string().required("Biography is required"),
   });
 

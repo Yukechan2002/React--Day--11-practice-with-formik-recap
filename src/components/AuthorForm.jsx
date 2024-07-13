@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import '../css/AuthorForm.css'
+import "../css/AuthorForm.css";
 
 const AuthorForm = ({ initialValues, onSubmit }) => {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -10,7 +10,9 @@ const AuthorForm = ({ initialValues, onSubmit }) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
-    birthDate: Yup.date().required("Birth Date is required"),
+    birthDate: Yup.date()
+      .max(new Date(), "Enter valid Date of Birth")
+      .required("Birth Date is required"),
     biography: Yup.string().required("Biography is required"),
   });
 
