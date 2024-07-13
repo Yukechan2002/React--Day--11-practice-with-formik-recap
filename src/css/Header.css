@@ -19,3 +19,7 @@
   text-decoration: none; /* Remove default underline */
   border-bottom: 2px solid #ffffff; /* White underline on hover */
 }
+.logo{
+  height: 50px;
+  width: 50px;
+}

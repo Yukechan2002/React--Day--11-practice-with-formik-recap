@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Header.css"; // Import your custom CSS file
+import logo from '../assets/logo.png'
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <Link className="navbar-brand" to="/">
-            Library Management
+            <img className="logo" src={logo} alt="Logo"/>
           </Link>
           <button
             className="navbar-toggler"
